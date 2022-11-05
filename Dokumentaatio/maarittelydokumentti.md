@@ -9,7 +9,7 @@
 
 Projektin tarkoitus on luoda ja piirtää labyrinttejä eri parametrein muutamalla eri labyrintinluontialgoritmilla.
 Näitä algoritmeja ovat ainakin satunnaistettu Primin algoritmi ja satunnaistettu Kruskalin algoritmi.
-Mahdollisesti myös satunnaistettu syvyyshaku.
+Mahdollisesti myös muita algoritmeja (satunnaistettu syvyyshaku, Wilsonin algoritmi, Aldous-Broder algoritmi).
 
 Valitsin aiheeseen selatessani kurssimateriaalin Aiheita-sivua ja päädyin wikipedian em. mainittuja algoritmeja koskevalle sivulle.
 Sivulla olevat animaatiot olivat niin mukavan näköisiä, että halusin toteuttaa vastaavan itse.
@@ -43,3 +43,4 @@ Ohjelma luo ja piirtää labyrinttejä valittujen parametrien mukaisesti. Parame
 ## Lähteet
 
 - [https://en.wikipedia.org/wiki/Maze_generation_algorithm](https://en.wikipedia.org/wiki/Maze_generation_algorithm)
+- [Tirakirja](https://www.cs.helsinki.fi/u/ahslaaks/tirakirja/), Laaksonen Antti
