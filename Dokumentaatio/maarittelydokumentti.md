@@ -24,8 +24,22 @@ ja lisätään tämän solun seinät seinälistalle. Tämän jälkeen käydään
     2. Lisätään juuri merkityn solun seinät seinälistalle.
 2. Poistetaan seinä seinälistalta.
 
+Tilavaativuus: O(n+m), jossa n on ruudukon solujen määrä ja m on seinien määrä.
+Aikavaativuus: Normaalisti Primin algoritmin aikavaativuus keolla on O(n+m log n). Algoritmin satunnaistaminen saattaisi pienentää aikavaativuutta, sillä seiniä ei tarvitse käsitellä tietyssä järjestyksessä, mutta en ole asiasta vielä varma.
+
 ## Satunnaistettu Kruskalin algoritmi
 
 Algoritmin alkutilanteessa luodaan seinälista ja union-find-tietorakenne, jossa kaikki solut ovat aluksi yksin omassa joukossaan.
 Tämän jälkeen käydään seinälista läpi jossain satunnaisessa järjestyksessä. Tarkistetaan, kuuluvatko seinän erottamat solut eri joukkoihin.
 Jos eivät, poistetaan seinä ja yhdistetään seinän erottamien solujen joukot.
+
+Tilavaativuus: O(n+m), jossa n on ruudukon solujen määrä ja m on seinien määrä.
+Aikavaativuus: Normaalisti Kruskalin algoritmin aikavaativuus on O(n+m log n). Satunnaistetussa versiossa seiniä ei tarvitse järjestää, joka on vaativuudeltaan O(m log m), vaan sen sijaan ne voi sekoittaa esimerkiksi pythonin random-kirjaston shuffle-funktiolla, joka on O(n), joten aikavaativuus on varmaankin matalampi kuin normaalissa algoritmissa.
+
+## Ohjelman toiminta
+
+Ohjelma luo ja piirtää labyrinttejä valittujen parametrien mukaisesti. Parametreja ovat esimerkiksi ruudukon koko, käytettävä algoritmi ja mahdollisesti jotain vaikutusmahdollisuuksia seinälistojen järjestykseen.
+
+## Lähteet
+
+- [https://en.wikipedia.org/wiki/Maze_generation_algorithm](https://en.wikipedia.org/wiki/Maze_generation_algorithm)
