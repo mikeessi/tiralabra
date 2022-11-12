@@ -1,7 +1,6 @@
 import sys
 from app import App
 from kruskal import UF
-import random
 
 algs = {"1":1
        }
@@ -44,7 +43,7 @@ def choose_params():
             return
         maze = create_maze(size, alg)
         draw_query = choose_to_draw()
-        if draw_query == True:
+        if draw_query is True:
             cell_size = define_cell_size(size)
             route = parse_kruskal_output(maze)
             draw_pic(route,size,cell_size)
@@ -62,13 +61,12 @@ def choose_size():
         ans = input()
         if ans == "e":
             return None
-        else:
-            try:
-                size = int(ans)
-                if size >= 2:
-                    return size
-            except:
-                pass
+        try:
+            size = int(ans)
+            if size >= 2:
+                return size
+        except ValueError:
+            pass
 
 def choose_alg():
     """
@@ -87,7 +85,7 @@ def choose_alg():
         try:
             alg = algs[ans]
             return alg
-        except:
+        except KeyError:
             pass
 
 def parse_kruskal_output(maze):
@@ -98,7 +96,8 @@ def parse_kruskal_output(maze):
         Kruskalin algoritmin antama lista, alkiot muotoa ((x,y),(a,b)),
         missä (x,y) on käytävän lähtösolu ja (a,b) kohdesolu.
     Returns:
-        Lista muotoa (x,y,dir), jossa x,y on käytävän solun koordinaatit ja dir on suunta, missä naapurisolu on.
+        Lista muotoa (x,y,dir), jossa x,y on käytävän solun koordinaatit
+        ja dir on suunta, missä naapurisolu on.
     """
     dirs = {(1,0):"D",
             (-1,0):"U",
@@ -109,15 +108,15 @@ def parse_kruskal_output(maze):
     seen = set([])
     for ((x,y),(a,b)) in maze:
         if (x,y) in seen:
-            dir = (x-a,y-b)
-            output.append((a,b,dirs[dir]))
+            direction = (x-a,y-b)
+            output.append((a,b,dirs[direction]))
             seen.add((a,b))
         else:
             seen.add((x,y))
             seen.add((a,b))
-            dir = (x-a,y-b)
+            direction = (x-a,y-b)
             output.append((x,y,None))
-            output.append((a,b,dirs[dir]))
+            output.append((a,b,dirs[direction]))
     return output
 
 def choose_to_draw():

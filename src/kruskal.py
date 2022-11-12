@@ -15,8 +15,8 @@ class UF:
         self.node_map = {}
         self.nodes = [(i,j) for j in range(size) for i in range(size)]
         for i, val in enumerate(self.nodes):
-            n = UFNode(val, i)
-            self.node_map[val] = n
+            node = UFNode(val, i)
+            self.node_map[val] = node
 
     def neighbors(self, node):
         """
@@ -28,7 +28,8 @@ class UF:
             Lista koordinaateista solmun ympäriltä.
         """
         return [(node[0]+dx,node[1]+dy) for dx, dy in ((-1,0),(1,0),(0,1),(0,-1))
-               if node[0]+dx >= 0 and node[0]+dx < self.size and node[1]+dy >= 0 and node[1]+dy < self.size] 
+               if node[0]+dx >= 0 and node[0]+dx < self.size
+               and node[1]+dy >= 0 and node[1]+dy < self.size]
 
     def find(self, node):
         """
@@ -50,12 +51,11 @@ class UF:
         Returns
             Edustajasolmu
         """
-        if type(self.node_map[node].parent) is int:
+        if isinstance(self.node_map[node].parent,int):
             return self.node_map[node]
-        else:
-            parent_node = self.find_node(self.node_map[node].parent.val)
-            self.node_map[node].parent = parent_node
-            return parent_node
+        parent_node = self.find_node(self.node_map[node].parent.val)
+        self.node_map[node].parent = parent_node
+        return parent_node
 
     def union(self, node1, node2):
         """
@@ -74,26 +74,26 @@ class UF:
         """
         Määrittää virittävän puun kaikkien ruudukon komponenttien välillä satunnaisesti.
         Ts. luo sokkelon, johon kaikki ruudukon solmut kuuluvat.
-        
+
         Returns:
             Virittävä puu listana, joka kertoo solmujen yhteydet.
         """
         edges = [(node,nbor) for node in self.nodes for nbor in self.neighbors(node)]
-        self.maze = []
+        maze = []
 
-        while len(self.maze) < len(self.nodes)-1:
+        while len(maze) < len(self.nodes)-1:
             edge = edges.pop(random.randint(0, len(edges)-1))
             if self.find(edge[0]) != self.find(edge[1]):
                 self.union(edge[0], edge[1])
-                self.maze.append(edge)
-        return self.maze
+                maze.append(edge)
+        return maze
 
 class UFNode:
     """
     Luokka, joka mallintaa yhtä solmua/komponenttia union-find-tietorakenteessa.
     """
     def __init__(self,val,parent):
-       self.val = val
-       self.parent = parent
+        self.val = val
+        self.parent = parent
 
 a = UF(10)
