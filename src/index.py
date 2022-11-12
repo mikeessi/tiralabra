@@ -3,14 +3,13 @@ from app import App
 from kruskal import UF
 import random
 
-options = {"1":(800,800),
-           "2":(600,600)
-          }
-
 algs = {"1":1
        }
 
 def main():
+    """
+    Käyttöliittymän pääsilmukka
+    """
     while True:
         print("Valitse toiminto")
         print("1. Luo uusi sokkelo")
@@ -22,10 +21,20 @@ def main():
             sys.exit()
 
 def draw_pic(route,size,cell_size):
+    """
+    Kutsuu pygamea piirtämään sokkelon ruudulle.
+    Args:
+        route: Järjestys, jossa reitti piirretään ruudulle
+        size: Ruudukon koko (size*size)
+        cell_size: Yksittäisen solun koko
+    """
     screen = App(route,size,cell_size)
     screen.run()
 
 def choose_params():
+    """
+    Silmukka, jossa valitaan halutut luotavan sokkelon parametrit.
+    """
     while True:
         size = choose_size()
         if size is None:
@@ -41,6 +50,12 @@ def choose_params():
             draw_pic(route,size,cell_size)
 
 def choose_size():
+    """
+    Silmukka, jossa valitaan sokkelon koko.
+
+    Returns:
+        size: Ruudukon reunan pituus soluina
+    """
     while True:
         print("Valitse sokkelon koko (>=2)")
         print("e. Takaisin")
@@ -56,6 +71,12 @@ def choose_size():
                 pass
 
 def choose_alg():
+    """
+    Silmukka, jossa valitaan käytettävä algoritmi
+
+    Returns:
+        alg: Haluttu algoritmi
+    """
     while True:
         print("Valitse käytettävä algoritmi")
         print("1. Satunnaistettu Kruskalin algoritmi")
@@ -70,6 +91,15 @@ def choose_alg():
             pass
 
 def parse_kruskal_output(maze):
+    """
+    Muodostaa Kruskalin algoritmin tuotoksesta sopivan reittilistan pygamelle.
+
+    Args:
+        Kruskalin algoritmin antama lista, alkiot muotoa ((x,y),(a,b)),
+        missä (x,y) on käytävän lähtösolu ja (a,b) kohdesolu.
+    Returns:
+        Lista muotoa (x,y,dir), jossa x,y on käytävän solun koordinaatit ja dir on suunta, missä naapurisolu on.
+    """
     dirs = {(1,0):"D",
             (-1,0):"U",
             (0,1):"R",
@@ -91,6 +121,14 @@ def parse_kruskal_output(maze):
     return output
 
 def choose_to_draw():
+    """
+    Silmukka, jossa päätetään, piirretäänkö sokkelo vai ei.
+    Isojen sokkeloiden piirtäminen ei mahdu ruudulle ja niiden piirtämisessä kestäisi
+    kovin kauan, joten niitä ei välttämättä haluta piirtää.
+
+    Returns:
+        Totuusarvon, joka kertaa piirretäänkö vai ei.
+    """
     while True:
         print("Piirretäänkö sokkelo? k/e")
         ans = input()
@@ -100,9 +138,24 @@ def choose_to_draw():
             return False
 
 def define_cell_size(size):
+    """
+    Laskee sopivan solukoon solujen määrän perusteella.
+
+    Returns:
+        Sopivan solukoon.
+    """
     return round(800/size)
 
 def create_maze(size, algo):
+    """
+    Kutsuu algoritmi/tietorakenneluokat ja luo sokkelot.
+
+    Args:
+        size: Sokkelon koko
+        algo: Käytettävä algoritmi
+    Returns:
+        Sokkelo "raakamuodossa", joka vaatii ehkä vielä uudelleenmuokkausta pygamea varten
+    """
     if algo == 1:
         union_find = UF(size)
         maze = union_find.kruskal()
