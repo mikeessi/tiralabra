@@ -1,6 +1,6 @@
 # Viikko 2
 
-Käytetty aika ~15 tuntia
+Käytetty aika ~18 tuntia
 
 ## Viikon aikaansaannokset & ohjelman edistyminen
 
@@ -10,6 +10,7 @@ Käytetty aika ~15 tuntia
 - Union-find-tietorakenne ainakin alustavasti lisätty
 - Alustava Kruskalin algoritmi lisätty
 - Ohjelma toimii nyt tällä yhdellä algoritmilla
+- Pylint lisätty ja koodia putsailtu
 
 ## Mitä opin kuluneella viikolla?
 
