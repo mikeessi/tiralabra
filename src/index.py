@@ -1,8 +1,10 @@
 import sys
 from app import App
 from kruskal import UF
+from random_dfs import DFS
 
-algs = {"1":1
+algs = {"1":1,
+        "2":2
        }
 
 def main():
@@ -45,7 +47,10 @@ def choose_params():
         draw_query = choose_to_draw()
         if draw_query is True:
             cell_size = define_cell_size(size)
-            route = parse_kruskal_output(maze)
+            if alg == 1:
+                route = parse_kruskal_output(maze)
+            else:
+                route = maze
             draw_pic(route,size,cell_size)
 
 def choose_size():
@@ -78,9 +83,10 @@ def choose_alg():
     while True:
         print("Valitse käytettävä algoritmi")
         print("1. Satunnaistettu Kruskalin algoritmi")
-        print("2. Alkuun")
+        print("2. Satunnaistettu syvyyshaku")
+        print("3. Alkuun")
         ans = input()
-        if ans == "2":
+        if ans == "3":
             return None
         try:
             alg = algs[ans]
@@ -158,6 +164,10 @@ def create_maze(size, algo):
     if algo == 1:
         uf = UF(size)
         maze = uf.kruskal()
+        return maze
+    if algo == 2:
+        dfs = DFS(size)
+        maze = dfs.create_maze(0,0)
         return maze
 
 if __name__ == "__main__":
