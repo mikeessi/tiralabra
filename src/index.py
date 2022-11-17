@@ -156,8 +156,8 @@ def create_maze(size, algo):
         Sokkelo "raakamuodossa", joka vaatii ehkä vielä uudelleenmuokkausta pygamea varten
     """
     if algo == 1:
-        union_find = UF(size)
-        maze = union_find.kruskal()
+        uf = UF(size)
+        maze = uf.kruskal()
         return maze
 
 if __name__ == "__main__":
