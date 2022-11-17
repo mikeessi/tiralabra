@@ -1,12 +1,29 @@
 import random
 
 class DFS:
+    """
+    Luokka, joka mallintaa syvyyshakua.
+    """
     def __init__(self, size):
+        """
+        Args:
+            size: Sokkelon reunan pituus
+        """
         self.size = size
         self.maze = []
         self.visited = set()
 
     def create_maze(self,x,y):
+        """
+        Luo sokkelon satunnaistetulla syvyyshaulla.
+
+        Args:
+            x,y: Sokkelon luonnin alkukoordinaatit
+        Returns:
+            Lista algoritmin luomasta reitistä muodossa (x,y,dir),
+            missä x,y ovat solun koordinaatit ja dir on suunta,
+            mistä soluun saavutaan.
+        """
         directions = [(1,0,"U"),(-1,0,"D"),(0,1,"L"),(0,-1,"R")]
         nodes = []
         nodes.append((x,y,None))
