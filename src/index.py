@@ -1,7 +1,7 @@
 import sys
 from app import App
-from kruskal import UF
-from random_dfs import DFS
+from algorithms.kruskal import UF
+from algorithms.random_dfs import DFS
 
 algs = {"1":1,
         "2":2
