@@ -7,3 +7,7 @@ class TestDFS(unittest.TestCase):
 
     def test_constructor_creates_size_correctly(self):
         self.assertEqual(self.dfs.size, 10)
+
+    def test_correct_maze_length(self):
+        maze = self.dfs.create_maze(0,0)
+        self.assertEqual(len(maze), 100)
