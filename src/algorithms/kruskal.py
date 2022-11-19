@@ -44,7 +44,8 @@ class UF:
 
     def union(self, parent, rank, node1, node2):
         """
-        Tarkistaa, kuuluuko solmut samaan komponenttiin. Jos ei, liitetään ne samaan komponenttiin.
+        Tarkistaa, kuuluuko solmut samaan komponenttiin.
+        Jos ei, liitetään ne samaan komponenttiin.
 
         Args:
             parent: Hajautustaulu, joka kertoo kunkin solmun komponentin edustajan.
@@ -66,6 +67,9 @@ class UF:
         """
         Määrittää virittävän puun kaikkien ruudukon komponenttien välillä satunnaisesti.
         Ts. luo sokkelon, johon kaikki ruudukon solmut kuuluvat.
+        Normaalisti Kruskalin algoritmi lisäisi kaaret verkkoon painon
+        mukaan suuruusjärjestyksessä pienimmästä alkaen, mutta satunnaistetussa
+        versiossa kaarilla ei ole painoa, ja ne valitaan sattumanvaraisesti.
 
         Returns:
             Virittävä puu listana, joka kertoo solmujen yhteydet.
@@ -85,4 +89,3 @@ class UF:
                 maze.append((node1,node2))
                 self.union(parent,rank,node1,node2)
         return maze
-

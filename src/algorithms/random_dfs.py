@@ -16,6 +16,9 @@ class DFS:
     def create_maze(self,x,y):
         """
         Luo sokkelon satunnaistetulla syvyyshaulla.
+        Sen sijaan, että valitaan aina tietty kulkusuunta,
+        lista suunnista sekoitetaan jokaisella iteraatiolla ja
+        suunnanvalinta on näin sattumanvarainen.
 
         Args:
             x,y: Sokkelon luonnin alkukoordinaatit
