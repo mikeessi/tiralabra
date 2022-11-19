@@ -8,25 +8,20 @@
 ## Aihe
 
 Projektin tarkoitus on luoda ja piirtää labyrinttejä eri parametrein muutamalla eri labyrintinluontialgoritmilla.
-Näitä algoritmeja ovat ainakin satunnaistettu Primin algoritmi ja satunnaistettu Kruskalin algoritmi.
-Mahdollisesti myös muita algoritmeja (satunnaistettu syvyyshaku, Wilsonin algoritmi, Aldous-Broder algoritmi).
+Näitä algoritmeja ovat ainakin satunnaistettu syvyyshaku ja satunnaistettu Kruskalin algoritmi.
+Mahdollisesti myös muita algoritmeja (satunnaistettu Primin algoritmi, Wilsonin algoritmi, Aldous-Broder algoritmi).
 
 Valitsin aiheeseen selatessani kurssimateriaalin Aiheita-sivua ja päädyin wikipedian em. mainittuja algoritmeja koskevalle sivulle.
 Sivulla olevat animaatiot olivat niin mukavan näköisiä, että halusin toteuttaa vastaavan itse.
 
-## Satunnaistettu Primin algoritmi
+## Satunnaistettu syvyyshaku
 
-Algoritmi lähtee alkutilanteesta, jossa on ruudukko täynnä seiniä. Tämän jälkeen valitaan yksi ruudukon soluista osaksi labyrinttiä,
-ja lisätään tämän solun seinät seinälistalle. Tämän jälkeen käydään seinälistaa läpi niin kauan kuin siellä riittää jäseniä toimien seuraavalla tavalla:
+Aluksi luodaan set-tietorakenne, johon talletetaan vieraillut solut, sekä lista, johon talletetaan algoritmin kulkema reitti. Tämän jälkeen algoritmi toimii aloittamalla syvyyshaun lähtöpisteestä, lisäten jokaisen naapurisolun pinoon,
+mikäli niiden koordinaatit ovat ruudukon sisäpuolella, ja solussa ei ole vielä käyty. Sitten käydään kekoa läpi niin pitkään kuin sitä riittää, merkiten solut vierailluksi, ja lisäämällä ne reittilistalle.
 
-1. Valitaan satunnaisesti seinä. Jos ainoastaan yksi seinän jakamista soluista on merkitty käydyksi niin:
-    1. Tehdään seinästä käytävä ja merkitään käymättä oleva solu osaksi labyrinttiä.
-    2. Lisätään juuri merkityn solun seinät seinälistalle.
-2. Poistetaan seinä seinälistalta.
-
-Tilavaativuus: O(n+m), jossa n on ruudukon solujen määrä ja m on seinien määrä.
-Aikavaativuus: Normaalisti Primin algoritmin aikavaativuus keolla on O(n+m log n). Algoritmin satunnaistaminen saattaisi pienentää aikavaativuutta, sillä seiniä ei tarvitse käsitellä tietyssä järjestyksessä, mutta en ole asiasta vielä varma.
-
+Tilavaativuus: O(n+m), jossa n on ruudukon solujen määrä ja m on kaarien määrä.
+Aikavaativuus: O(n+m)
+ 
 ## Satunnaistettu Kruskalin algoritmi
 
 Algoritmin alkutilanteessa luodaan seinälista ja union-find-tietorakenne, jossa kaikki solut ovat aluksi yksin omassa joukossaan.
