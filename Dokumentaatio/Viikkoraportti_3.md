@@ -1,6 +1,6 @@
 # Viikko 3
 
-Käytetty aika n. 10 tuntia
+Käytetty aika n. 12 tuntia
 
 ## Viikon aikaansaannokset & ohjelman edistyminen
 
