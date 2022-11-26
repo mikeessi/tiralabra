@@ -1,0 +1,8 @@
+[MASTER]
+ignore=tests
+
+[MESSAGES CONTROL]
+disable=missing-module-docstring
+
+[BASIC]
+good-names=x,y,a,b,nx,ny,dx,dy
