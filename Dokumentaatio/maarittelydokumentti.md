@@ -20,6 +20,7 @@ Aluksi luodaan set-tietorakenne, johon talletetaan vieraillut solut, sekä lista
 mikäli niiden koordinaatit ovat ruudukon sisäpuolella, ja solussa ei ole vielä käyty. Sitten käydään kekoa läpi niin pitkään kuin sitä riittää, merkiten solut vierailluksi, ja lisäämällä ne reittilistalle.
 
 Tilavaativuus: O(n+m), jossa n on ruudukon solujen määrä ja m on kaarien määrä.
+
 Aikavaativuus: O(n+m)
  
 ## Satunnaistettu Kruskalin algoritmi
@@ -29,7 +30,19 @@ Tämän jälkeen käydään seinälista läpi jossain satunnaisessa järjestykse
 Jos eivät, poistetaan seinä ja yhdistetään seinän erottamien solujen joukot.
 
 Tilavaativuus: O(n+m), jossa n on ruudukon solujen määrä ja m on seinien määrä.
+
 Aikavaativuus: Normaalisti Kruskalin algoritmin aikavaativuus on O(n+m log n). Satunnaistetussa versiossa seiniä ei tarvitse järjestää, joka on vaativuudeltaan O(m log m), vaan sen sijaan ne voi sekoittaa esimerkiksi pythonin random-kirjaston shuffle-funktiolla, joka on O(n), joten aikavaativuus on varmaankin matalampi kuin normaalissa algoritmissa.
+
+## Wilsonin algoritmi
+
+Algoritmin alkutilanteessa luodaan lista kaikista ruudukon solujen koordinaateista, ja tehdään näille naapurilistat hajautustauluna.
+Tämän jälkeen valitaan sattumanvaraisesti yksi solu, joka lisätään osaksi sokkeloa. Sitten valitaan sattumanvaraisesti yksi solu, joka ei kuulu sokkeloon,
+ja suoritetaan satunnaista reitinetsintää, kunnes löydetään solu, joka kuuluu sokkeloon. Tämän jälkeen lisätään äsken kuljettu reitti osaksi sokkeloa. Toistetaan samaa, kunnes kaikki solut on käyty läpi.
+
+Tilavaativuus: O(n+m), jossa n on ruudukon solujen määrä ja m on kaarien määrä.
+
+Aikavaativuus: Aikavaativuutta ei pysty määrittämään, sillä satunnaista reitinetsintää tehtäessä samassa solussa saatetaan käydä useamman kerran, jolloin periaatteessa on mahdollista, että algoritmin suoritus ei lopu koskaan.
+Käytännössä tämä tarkoittaa sitä, että suurilla ruudukoilla algoritmin toiminta hidastuu huomattavasti.
 
 ## Ohjelman toiminta
 
