@@ -53,7 +53,7 @@ class App:
             if len(self.route) > 0:
                 self.route_so_far.append(self.route.pop(0))
             self.renderer.render(display, self.route_so_far)
-            self.clock.tick(60)
+            self.clock.tick(30)
 
         pygame.quit()
         sys.exit()

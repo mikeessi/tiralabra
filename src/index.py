@@ -1,10 +1,13 @@
 import sys
 from app import App
+from parse_output import parse_wilson_output, parse_kruskal_output
 from algorithms.kruskal import UF
 from algorithms.random_dfs import DFS
+from algorithms.wilson import Wilson
 
 algs = {"1":1,
-        "2":2
+        "2":2,
+        "3":3
        }
 
 def main():
@@ -49,6 +52,8 @@ def choose_params():
             cell_size = define_cell_size(size)
             if alg == 1:
                 route = parse_kruskal_output(maze)
+            elif alg == 3:
+                route = parse_wilson_output(maze)
             else:
                 route = maze
             draw_pic(route,size,cell_size)
@@ -84,46 +89,16 @@ def choose_alg():
         print("Valitse käytettävä algoritmi")
         print("1. Satunnaistettu Kruskalin algoritmi")
         print("2. Satunnaistettu syvyyshaku")
-        print("3. Alkuun")
+        print("3. Wilsonin algoritmi")
+        print("4. Alkuun")
         ans = input()
-        if ans == "3":
+        if ans == "4":
             return None
         try:
             alg = algs[ans]
             return alg
         except KeyError:
             pass
-
-def parse_kruskal_output(maze):
-    """
-    Muodostaa Kruskalin algoritmin tuotoksesta sopivan reittilistan pygamelle.
-
-    Args:
-        Kruskalin algoritmin antama lista, alkiot muotoa ((x,y),(a,b)),
-        missä (x,y) on käytävän lähtösolu ja (a,b) kohdesolu.
-    Returns:
-        Lista muotoa (x,y,dir), jossa x,y on käytävän solun koordinaatit
-        ja dir on suunta, missä naapurisolu on.
-    """
-    dirs = {(1,0):"D",
-            (-1,0):"U",
-            (0,1):"R",
-            (0,-1):"L"
-           }
-    output = []
-    seen = set([])
-    for ((x,y),(a,b)) in maze:
-        if (x,y) in seen:
-            direction = (x-a,y-b)
-            output.append((a,b,dirs[direction]))
-            seen.add((a,b))
-        else:
-            seen.add((x,y))
-            seen.add((a,b))
-            direction = (x-a,y-b)
-            output.append((x,y,None))
-            output.append((a,b,dirs[direction]))
-    return output
 
 def choose_to_draw():
     """
@@ -168,6 +143,10 @@ def create_maze(size, algo):
     if algo == 2:
         dfs = DFS(size)
         maze = dfs.create_maze(0,0)
+        return maze
+    if algo == 3:
+        wilson = Wilson(size)
+        maze = wilson.create_maze()
         return maze
 
 if __name__ == "__main__":
