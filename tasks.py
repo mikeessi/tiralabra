@@ -2,5 +2,5 @@ from invoke import task
 
 @task
 def start(ctx):
-    ctx.run("python src/index.py")
+    ctx.run("python src/index.py", pty=True)
 
