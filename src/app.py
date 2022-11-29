@@ -1,6 +1,6 @@
 import sys
 import pygame
-from pygame.constants import K_ESCAPE, KEYDOWN
+from pygame.constants import K_ESCAPE, K_RETURN, KEYDOWN
 from clock import Clock
 from eventqueue import EventQueue
 from renderer import Renderer
@@ -39,6 +39,8 @@ class App:
                 return False
             if event.type == pygame.QUIT:
                 return False
+            if event.type == KEYDOWN and event.key == K_RETURN:
+                self.skip_to_end()
 
     def run(self):
         """
@@ -67,3 +69,7 @@ class App:
         """
         height = size*cell_size + size*2
         return (height, height)
+
+    def skip_to_end(self):
+        self.route_so_far = self.route_so_far + self.route
+        self.route = []
