@@ -4,6 +4,8 @@
 
 - [Määrittelydokumentti](https://github.com/mikeessi/tiralabra/blob/main/Dokumentaatio/maarittelydokumentti.md)
 - [Testausdokumentti](https://github.com/mikeessi/tiralabra/blob/main/Dokumentaatio/testausdokumentti.md)
+- [Käyttöohje](https://github.com/mikeessi/tiralabra/blob/main/Dokumentaatio/kayttoohje.md)
+
 
 ## Viikkoraportit
 
