@@ -1,9 +1,9 @@
 import pygame_menu
-from draw import Draw
+from interface.draw import Draw
 from algorithms.random_dfs import DFS
 from algorithms.wilson import Wilson
 from algorithms.kruskal import UF
-from parse_output import parse_kruskal_output, parse_wilson_output
+from algorithms.parse_output import parse_kruskal_output, parse_wilson_output
 
 class Menu:
 

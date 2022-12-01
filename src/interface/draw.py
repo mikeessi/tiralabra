@@ -1,9 +1,9 @@
 import sys
 import pygame
 from pygame.constants import K_ESCAPE, K_RETURN, KEYDOWN
-from clock import Clock
-from eventqueue import EventQueue
-from renderer import Renderer
+from interface.clock import Clock
+from interface.eventqueue import EventQueue
+from interface.renderer import Renderer
 
 class Draw:
     """

@@ -1,6 +1,6 @@
 import pygame
 import pygame_menu
-from menu import Menu
+from interface.menu import Menu
 
 def main():
     display = pygame.display.set_mode((1000,1000))
