@@ -31,15 +31,15 @@ class DFS:
         nodes = []
         nodes.append((x,y,None))
         while nodes:
-            (nx,ny,dir) = nodes.pop()
+            (nx,ny,direction) = nodes.pop()
             if (nx,ny) in self.visited:
                 continue
             self.visited.add((nx,ny))
-            self.maze.append((nx,ny,dir))
+            self.maze.append((nx,ny,direction))
             random.shuffle(directions)
-            for (dx,dy,dir) in directions:
+            for (dx,dy,direction) in directions:
                 if (nx+dx >= 0 and nx+dx < self.size and ny+dy >= 0 and ny+dy < self.size
                    and (nx+dx,ny+dy) not in self.visited):
-                    nodes.append((nx+dx,ny+dy,dir))
+                    nodes.append((nx+dx,ny+dy,direction))
         return self.maze
 
