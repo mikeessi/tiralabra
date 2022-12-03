@@ -1,5 +1,4 @@
 import pygame
-import pygame_menu
 from interface.menu import Menu
 
 def main():

@@ -1,4 +1,3 @@
-import sys
 import pygame
 from pygame.constants import K_ESCAPE, K_RETURN, KEYDOWN
 from interface.clock import Clock

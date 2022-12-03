@@ -42,4 +42,3 @@ class DFS:
                    and (nx+dx,ny+dy) not in self.visited):
                     nodes.append((nx+dx,ny+dy,direction))
         return self.maze
-
