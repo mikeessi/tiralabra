@@ -12,9 +12,9 @@ class Menu:
 
         self.menu = pygame_menu.Menu("Sokkelosovellus",1000,1000,
                                      theme=pygame_menu.themes.THEME_DARK)
-        self.alg_input = self.menu.add.selector("Algoritmi :", [("Satunnaistettu Kruskal",1),
+        self.alg_input = self.menu.add.selector("Algoritmi: ", [("Satunnaistettu Kruskal",1),
                          ("Satunnaistettu syvyyshaku",2),("Wilsonin algoritmi",3)])
-        self.size_input = self.menu.add.text_input("Sokkelon koko :", default="20",
+        self.size_input = self.menu.add.text_input("Sokkelon koko: ", default="20",
                            valid_chars=["1","2","3","4","5","6","7","8","9","0"])
         self.menu.add.button("Luo sokkelo", self.create_maze)
         self.menu.add.button("Poistu", pygame_menu.events.EXIT)
