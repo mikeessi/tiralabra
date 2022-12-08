@@ -1,4 +1,9 @@
 
+DIRS = {(1,0):"U",
+        (-1,0):"D",
+        (0,1):"L",
+        (0,-1):"R"
+       }
 def parse_wilson_output(maze):
     """
     Muodostaa Wilsonin algoritmin tuotoksesta sopivan reittilistan pygamelle.
@@ -12,11 +17,6 @@ def parse_wilson_output(maze):
         ja dir on suunta, missä naapurisolu on, tai None, jos polku alkaa
         tästä solusta.
     """
-    dirs = {(1,0):"U",
-        (-1,0):"D",
-        (0,1):"L",
-        (0,-1):"R"
-       }
     output = []
     (x,y) = maze.pop(0)
     output.append((x,y,None))
@@ -29,7 +29,7 @@ def parse_wilson_output(maze):
             else:
                 (a,b) = previous
                 direction = (x-a,y-b)
-                output.append((x,y,dirs[direction]))
+                output.append((x,y,DIRS[direction]))
                 previous = (x,y)
         previous = None
     return output
@@ -45,22 +45,17 @@ def parse_kruskal_output(maze):
         Lista muotoa (x,y,dir), jossa x,y on käytävän solun koordinaatit
         ja dir on suunta, missä naapurisolu on.
     """
-    dirs = {(1,0):"D",
-            (-1,0):"U",
-            (0,1):"R",
-            (0,-1):"L"
-           }
     output = []
     seen = set([])
     for ((x,y),(a,b)) in maze:
         if (x,y) in seen:
-            direction = (x-a,y-b)
-            output.append((a,b,dirs[direction]))
+            direction = (a-x,b-y)
+            output.append((a,b,DIRS[direction]))
             seen.add((a,b))
         else:
             seen.add((x,y))
             seen.add((a,b))
-            direction = (x-a,y-b)
+            direction = (a-x,b-y)
             output.append((x,y,None))
-            output.append((a,b,dirs[direction]))
+            output.append((a,b,DIRS[direction]))
     return output
