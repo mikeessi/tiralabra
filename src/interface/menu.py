@@ -3,6 +3,7 @@ from interface.draw import Draw
 from algorithms.random_dfs import DFS
 from algorithms.wilson import Wilson
 from algorithms.kruskal import UF
+from algorithms.aldous_broder import AldousBroder
 from algorithms.parse_output import parse_kruskal_output, parse_wilson_output
 
 class Menu:
@@ -13,7 +14,8 @@ class Menu:
         self.menu = pygame_menu.Menu("Sokkelosovellus",1000,1000,
                                      theme=pygame_menu.themes.THEME_DARK)
         self.alg_input = self.menu.add.selector("Algoritmi: ", [("Satunnaistettu Kruskal",1),
-                         ("Satunnaistettu syvyyshaku",2),("Wilsonin algoritmi",3)])
+                         ("Satunnaistettu syvyyshaku",2),("Wilsonin algoritmi",3),
+                         ("Aldous-Broder",4)])
         self.size_input = self.menu.add.text_input("Sokkelon koko: ", default="20",
                            valid_chars=["1","2","3","4","5","6","7","8","9","0"])
         self.menu.add.button("Luo sokkelo", self.create_maze)
@@ -31,6 +33,9 @@ class Menu:
         if alg == 2:
             wilson = Wilson(size)
             route = parse_wilson_output(wilson.create_maze())
+        if alg == 3:
+            aldous_broder = AldousBroder(size)
+            route = aldous_broder.create_maze()
         self.draw_maze(route,size)
 
     def get_size(self):

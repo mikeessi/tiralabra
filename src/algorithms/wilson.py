@@ -39,6 +39,7 @@ class Wilson:
         """
         start = self.new_node()
         route = [start]
+
         while len(self.nodes) > 0:
             node = random.choice(self.nodes)
             path = [node]
