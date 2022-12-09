@@ -19,7 +19,7 @@ Sivulla olevat animaatiot olivat niin mukavan näköisiä, että halusin toteutt
 Aluksi luodaan set-tietorakenne, johon talletetaan vieraillut solut, sekä lista, johon talletetaan algoritmin kulkema reitti. Tämän jälkeen algoritmi toimii aloittamalla syvyyshaun lähtöpisteestä, lisäten jokaisen naapurisolun pinoon,
 mikäli niiden koordinaatit ovat ruudukon sisäpuolella, ja solussa ei ole vielä käyty. Sitten käydään kekoa läpi niin pitkään kuin sitä riittää, merkiten solut vierailluksi, ja lisäämällä ne reittilistalle.
 
-Tilavaativuus: O(n+m), jossa n on ruudukon solujen määrä ja m on kaarien määrä.
+Tilavaativuus: O(n+m), jossa n on ruudukon solujen määrä ja m on seinien määrä.
 
 Aikavaativuus: O(n+m)
  
@@ -39,10 +39,20 @@ Algoritmin alkutilanteessa luodaan lista kaikista ruudukon solujen koordinaateis
 Tämän jälkeen valitaan sattumanvaraisesti yksi solu, joka lisätään osaksi sokkeloa. Sitten valitaan sattumanvaraisesti yksi solu, joka ei kuulu sokkeloon,
 ja suoritetaan satunnaista reitinetsintää, kunnes löydetään solu, joka kuuluu sokkeloon. Tämän jälkeen lisätään äsken kuljettu reitti osaksi sokkeloa. Toistetaan samaa, kunnes kaikki solut on käyty läpi.
 
-Tilavaativuus: O(n+m), jossa n on ruudukon solujen määrä ja m on kaarien määrä.
+Tilavaativuus: O(n+m), jossa n on ruudukon solujen määrä ja m on seinien määrä.
 
 Aikavaativuus: Aikavaativuutta ei pysty määrittämään, sillä satunnaista reitinetsintää tehtäessä samassa solussa saatetaan käydä useamman kerran, jolloin periaatteessa on mahdollista, että algoritmin suoritus ei lopu koskaan.
 Käytännössä tämä tarkoittaa sitä, että suurilla ruudukoilla algoritmin toiminta hidastuu huomattavasti.
+
+## Aldous-Broderin algoritmi
+
+Algoritmin alkutilanteessa lasketaan, kuinka monta solua on vielä lisäämättä sokkeloon. Tämän jälkeen valitaan yksi solu sattumanvaraisesti
+ja aloitetaan sieltä sokkelon muodostaminen. Algoritmi valitsee sattumanvaraisesti yhden naapurisolun ja siirtyy sinne. Mikäli solu ei ollut vielä osa sokkeloa, niin se lisätään sokkeloon.
+Jos solu oli jo osa sokkeloa, niin valitaan suoraan uusi naapuri ja siirrytään sinne.
+
+Tilavaativuus: O(n+m), jossa n on ruudukon solujen määrä ja m on seinien määrä.
+
+Aikavaativuus: Samoin kuin Wilsonin algoritmissa, pahimmassa tapauksessa algoritmin toiminta ei pääty koskaan, joten aikavaativuutta ei voi määrittää.
 
 ## Ohjelman toiminta
 
