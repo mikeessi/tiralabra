@@ -3,13 +3,32 @@ import pygame
 WHITE = (255,255,255)
 
 class Renderer:
+    """
+    Mallintaa renderöijää, joka piirtää sokkelon pygame-ikkunaan.
+    """
 
     def __init__(self,cell_size):
+        """
+        Asettaa taustaväriksi mustan, asettaa sopivan solun koon,
+        sekä seinän paksuuden
+
+        Args:
+            cell_size: Yhden solun reunan pituus
+        """
         self.bg_color = (0,0,0)
         self.cell_size = cell_size
         self.offset = 2
 
     def render(self, display, route):
+        """
+        Piirtää sokkelon solut ruudulle, sekä niiden väliset käytävät.
+        Piirtää käytävän sen perustella, mikä suunta solun koordinaatit
+        sisältävässä tuplessa on.
+
+        Args:
+            display: Pygame-ikkuna, johon piirretään
+            route: Lista koordinaateista ja suunnista muotoa (x,y,dir)
+        """
         display.fill(self.bg_color)
 
         for (y,x,direction) in route:

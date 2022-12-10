@@ -5,6 +5,7 @@ ignore=tests
 disable=missing-module-docstring,
         no-member,
         too-few-public-methods,
-        no-name-in-module
+        no-name-in-module,
+        inconsistent-return-statements
 [BASIC]
-good-names=x,y,a,b,nx,ny,dx,dy,uf
+good-names=x,y,a,b,nx,ny,dx,dy,uf,iters
