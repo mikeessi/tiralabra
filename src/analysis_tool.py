@@ -8,6 +8,12 @@ from tools.adjacency_dict import create_adjacency_dict
 from tools.dead_ends import count_dead_ends
 from tools.bfs import bfs
 
+GREETINGS = {1:"SATUNNAISTETTU KRUSKALIN ALGORITMI",
+             2:"SATUNNAISTETTU SYVYYSHAKU",
+             3:"WILSONIN ALGORITMI",
+             4:"ALDOUS-BRODERIN ALGORITMI"
+            }
+
 def test_algorithm(iterations, size, algorithm):
     """
     Luo halutun määrän tietyn algoritmin tuottamia sokkeloita,
@@ -21,6 +27,8 @@ def test_algorithm(iterations, size, algorithm):
     """
     times = []
     dead_end_counts = []
+
+    print(f"{GREETINGS[algorithm]:>40}")
 
     for iteration in range(iterations):
         start = time.time()
