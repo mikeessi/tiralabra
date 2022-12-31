@@ -75,11 +75,11 @@ HUOM. vaihteluväli ei tarkoita sitä, että algoritmia olisi testattu jokaisell
 ## Suorituskyky
 
 - Satunnaistettu Kruskalin algoritmi
-![Kruskalin algoritmi](https://raw.githubusercontent.com/mikeessi/tiralabra/Dokumentaatio/kuvat/r_kruskal_times.png)
+![Kruskalin algoritmi](https://github.com/mikeessi/tiralabra/Dokumentaatio/kuvat/r_kruskal_times.png)
 - Satunnaistettu syvyyshaku
-![Satunnaistettu syvyyshaku](https://raw.githubusercontent.com/mikeessi/tiralabra/Dokumentaatio/kuvat/r_bfs_times.png)
+![Satunnaistettu syvyyshaku](https://github.com/mikeessi/tiralabra/Dokumentaatio/kuvat/r_bfs_times.png)
 - Wilsonin algoritmi
-![Wilsonin algoritmi](https://raw.githubusercontent.com/mikeessi/tiralabra/Dokumentaatio/kuvat/wilson_times.png)
+![Wilsonin algoritmi](https://github.com/mikeessi/tiralabra/Dokumentaatio/kuvat/wilson_times.png)
 - Aldous-Broderin algoritmi
-![Aldous-Broder](https://raw.githubusercontent.com/mikeessi/tiralabra/Dokumentaatio/kuvat/ab_times.png)
+![Aldous-Broder](https://github.com/mikeessi/tiralabra/Dokumentaatio/kuvat/ab_times.png)
 
