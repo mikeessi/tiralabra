@@ -74,11 +74,11 @@ HUOM. vaihteluväli ei tarkoita sitä, että algoritmia olisi testattu jokaisell
 
 ## Suorituskyky
 
-Satunnaistettu Kruskalin algoritmi
+- Satunnaistettu Kruskalin algoritmi
 ![Kruskal](./kuvat/r_kruskal_times.png)
-Satunnaistettu syvyyshaku
+- Satunnaistettu syvyyshaku
 ![Satunnaistettu syvyyshaku](./kuvat/r_bfs_times.png)
-Wilsonin algoritmi
+- Wilsonin algoritmi
 ![Wilson](./kuvat/wilson_times.png)
 - Aldous-Broderin algoritmi
 ![Aldous-Broder](./kuvat/ab_times.png)
