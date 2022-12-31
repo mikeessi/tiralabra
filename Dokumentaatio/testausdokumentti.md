@@ -63,3 +63,23 @@ Molemmissa tapauksissa eri algoritmeja on testattu seuraavilla syötteillä:
 HUOM. vaihteluväli ei tarkoita sitä, että algoritmia olisi testattu jokaisella syötteellä tällä välillä, vaan että kaikki testisyötteet sijoittuvat em. välille.
 
 
+### Testien tulokset
+
+## Sokkelon yhtenäisyys & umpikujien määrät
+
+- Jokaisella testauskerralla luodut sokkelot ovat olleet yhtenäisiä, ja algoritmien pitäisi teoriassakin luoda niistä yhtenäisiä, joten tällä perusteella uskon algoritmien toimivan oikein ainakin siltä kannalta.
+- Yleisesti katsoen satunnaistettu syvyyshaku luo sokkeloita, joissa on huomattavasti vähemmän umpikujia kuin muiden algoritmien tuotoksissa. Kaikkien muiden algoritmien kesken umpikujien määrä oli suurinpiirtein sama. 
+- Tämän voi huomata myös silmämääräisesti; satunnaistetun syvyyshaun luomat sokkelot sisältävät selvästi enemmän pitkiä käytäviä.
+- Silmämääräisesti muiden algoritmien luomia sokkeloita tarkastellessa voisi kuvitella, että Wilsonin algoritmi luo myös enemmän pitkiä käytäviä kuin esimerkiksi Kruskalin algoritmi, mutta umpikujien määrä on kuitenkin suunnilleen sama.
+
+## Suorituskyky
+
+- Satunnaistettu Kruskalin algoritmi
+![Kruskalin algoritmi](https://raw.githubusercontent.com/mikeessi/tiralabra/Dokumentaatio/kuvat/r_kruskal_times.png)
+- Satunnaistettu syvyyshaku
+![Satunnaistettu syvyyshaku](https://raw.githubusercontent.com/mikeessi/tiralabra/Dokumentaatio/kuvat/r_bfs_times.png)
+- Wilsonin algoritmi
+![Wilsonin algoritmi](https://raw.githubusercontent.com/mikeessi/tiralabra/Dokumentaatio/kuvat/wilson_times.png)
+- Aldous-Broderin algoritmi
+![Aldous-Broder](https://raw.githubusercontent.com/mikeessi/tiralabra/Dokumentaatio/kuvat/ab_times.png)
+
